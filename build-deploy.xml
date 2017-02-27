@@ -3,13 +3,13 @@
 <project name="rcsit-deploy">
 
 	<!-- =================================================================== -->
-	<!-- Tomcat Local Admin                                                  -->
+	<!-- Tomcat Local change Admin                                                  -->
 	<!-- =================================================================== -->
 	<target name="tomcat-local-deploy-explore" description="Deploy application in Tomcat">
 		<mkdir dir="${tomcat.local.home}/webapps/${web.name}" />
 		<copy todir="${tomcat.local.home}/webapps/${web.name}" verbose="true">
 			<fileset dir="${web.root}">
-				<include name="**/*" />
+				<include name="22/*" />
 			</fileset>
 		</copy>
 	</target>
