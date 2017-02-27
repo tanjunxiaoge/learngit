@@ -21,7 +21,8 @@
 
 	<target name="tomcat-local-undeploy-explore" description="Undeploy application in Tomcat">
 		<tomcat-undeploy url="${tomcat.local.manager.url}" username="${tomcat.local.user}" password="${tomcat.local.password}" path="/${web.name}" />
-		<delete dir="${tomcat.home}/webapps/${web.name}" />
-	</target>
+
+	</target>2017/2/27
+	<go add="test"></go>
 
 </project>
