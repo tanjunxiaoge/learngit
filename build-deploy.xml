@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="rcsit-deploy">
+
+	<!-- =================================================================== -->
+	<!-- Tomcat Local Admin                                                  -->
+	<!-- =================================================================== -->
+	<target name="tomcat-local-deploy-explore" description="Deploy application in Tomcat">
+		<mkdir dir="${tomcat.local.home}/webapps/${web.name}" />
+		<copy todir="${tomcat.local.home}/webapps/${web.name}" verbose="true">
+			<fileset dir="${web.root}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="tomcat-local-redeploy-explore" description="Reload application in Tomcat">
+		<antcall target="tomcat-local-deploy-explore" />
+		<tomcat-reload url="${tomcat.local.manager.url}" username="${tomcat.local.user}" password="${tomcat.local.password}" path="/${web.name}" />
+	</target>
+
+	<target name="tomcat-local-undeploy-explore" description="Undeploy application in Tomcat">
+		<tomcat-undeploy url="${tomcat.local.manager.url}" username="${tomcat.local.user}" password="${tomcat.local.password}" path="/${web.name}" />
+		<delete dir="${tomcat.home}/webapps/${web.name}" />
+	</target>
+
+</project>
